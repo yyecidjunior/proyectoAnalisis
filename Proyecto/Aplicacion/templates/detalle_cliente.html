@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Cliente</title>
+    <link rel="stylesheet" href="{% static 'css/edicion.css' %}"> 
+</head>
+<body>
+    <header >
+        <h1 class="main-title">Detalles del Cliente</h1>
+        
+    </header>
+    <main>
+        <section class="info-section">
+            <h2>Información del Cliente</h2>
+            <ul>
+                <li><strong>Nombre:</strong> {{ cliente.Nombre }}</li>
+                <li><strong>Correo Electrónico:</strong> {{ cliente.Gmail }}</li>
+                <li><strong>Celular:</strong> {{ cliente.Celular }}</li>
+                <li><strong>Dirección:</strong> {{ cliente.Direccion }}</li>
+            </ul>
+            <a href="{% url 'edicionCliente' cliente.id %}" class="btn-edit">Editar</a>
+            <a href="{% url 'home' %}" class=" btn btn-info">Inicio</a>
+            
+            
+        </section>
+        <section class="contact-section">
+            <h2>Contactos del Cliente</h2>
+            <ul>
+                <li>Contacto 1: {{ cliente.Direccion }} </li>
+                <li>Contacto 2: contacto2@example.com</li>
+                <!-- Puedes listar los contactos del cliente aquí -->
+            </ul>
+        </section>
+        <section class="opportunities-section">
+            <h2>Oportunidades del Cliente</h2>
+            <ul>
+                <li>Oportunidad 1: Venta de producto X</li>
+                <li>Oportunidad 2: Servicio de consultoría</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Tu Empresa - CRM</p>
+    </footer>
+</body>
+</html>

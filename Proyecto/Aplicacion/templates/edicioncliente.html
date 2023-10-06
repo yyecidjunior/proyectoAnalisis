@@ -1,0 +1,31 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Informacion</title>
+    <link rel="stylesheet" href="{% static 'css/registro.css'%}">
+</head>
+<body> 
+    <div class="container">
+        <h1>Editar Informacion</h1>
+        <form action="{% url 'editarInfo' cliente.id %}" method="POST">
+            {% csrf_token %}
+            <label for="Nombre">Nombre:</label>
+            <input type="text" id="Nombre" name="Nombre"  value="{{cliente.Nombre}}">
+
+            <label for="Gmail">Correo Electrónico:</label>
+            <input type="email" id="Gmail" name="Gmail" value="{{cliente.Gmail}}" required>
+
+            <label for="Celular">Número de Teléfono:</label>
+            <input type="tel" id="Celular" name="Celular" value="{{cliente.Celular}}" required>
+
+            <label for="Direccion">Dirección:</label> 
+            <textarea id="Direccion" name="Direccion"  value="{{cliente.Direccion}}"  required>{{ cliente.Direccion }}</textarea>
+
+            <button type="submit">Guardar cambios</button>
+        </form>
+    </div>
+</body>
+</html>
